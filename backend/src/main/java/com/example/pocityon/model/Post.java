@@ -20,4 +20,7 @@ public class Post {
     @ManyToOne
     private User author;
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    private City city;
 }

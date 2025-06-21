@@ -18,6 +18,9 @@ public class Place {
     private double longitude;
     private String contactInfo;
     private String websiteUrl;
+    private String openingHours;
+    private String priceRange;
+    private String phoneNumber;
 
     @ManyToOne
     private City city;
@@ -25,10 +28,8 @@ public class Place {
     @ManyToOne
     private Category category;
 
-    @OneToOne(mappedBy = "place", cascade = CascadeType.ALL)
-    private Sticker sticker;
-
-    private List<String> images;
+    @OneToMany(mappedBy = "place")
+    private List<Image> images;
 
     @OneToMany(mappedBy = "place")
     private List<Suggestion> suggestions;

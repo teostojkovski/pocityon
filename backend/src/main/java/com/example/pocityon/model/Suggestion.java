@@ -23,4 +23,9 @@ public class Suggestion {
 
     private String type;
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    private Category category;
+    @ManyToOne
+    private City city;
 }

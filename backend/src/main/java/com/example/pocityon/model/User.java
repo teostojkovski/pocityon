@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 @Entity
 public class User {
 
@@ -22,9 +24,10 @@ public class User {
     @OneToMany(mappedBy = "author")
     private List<Suggestion> suggestions;
 
-    @OneToMany(mappedBy = "owner")
-    private List<Place> ownedPlaces;
-
     private String image;
+
+    private String bio;
+    private String socialLinks;
+    private int reputation;
 
 }

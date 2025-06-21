@@ -1,11 +1,13 @@
 package com.example.pocityon.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 import java.util.List;
 
+@Entity
 public class Category {
 
     @Id
@@ -14,6 +16,8 @@ public class Category {
 
     private String name;
 
+    private String icon;
+
     @OneToMany(mappedBy = "category")
-    private List<Place> places;
+    private List<Suggestion> suggestions;
 }
