@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -23,14 +24,18 @@ public class City {
     private String coverImage;
 
     @OneToMany(mappedBy = "city")
+    @JsonManagedReference(value = "city-places")
     private List<Place> places;
 
     @OneToMany(mappedBy = "city")
+    @JsonManagedReference(value = "city-images")
     private List<Image> images;
 
     @OneToMany(mappedBy = "city")
+    @JsonManagedReference(value = "city-suggestions")
     private List<Suggestion> suggestions;
 
     @OneToMany(mappedBy = "city")
+    @JsonManagedReference(value = "city-posts")
     private List<Post> posts;
 }

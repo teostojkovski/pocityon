@@ -2,11 +2,13 @@ package com.example.pocityon.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
 @Data
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -21,8 +23,10 @@ public class User {
     private String socialLinks;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "user-posts")
     private List<Post> posts;
 
     @OneToMany(mappedBy = "author")
+    @JsonManagedReference(value = "user-suggestions")
     private List<Suggestion> suggestions;
 }

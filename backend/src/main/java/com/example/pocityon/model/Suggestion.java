@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.time.LocalDateTime;
 
@@ -22,14 +23,18 @@ public class Suggestion {
     private LocalDateTime createdAt;
 
     @ManyToOne
+    @JsonBackReference(value = "user-suggestions")
     private User author;
 
     @ManyToOne
-    private Place place; // this is only if I tie the suggestion to a place.
+    @JsonBackReference(value = "place-suggestions")
+    private Place place;
 
     @ManyToOne
+    @JsonBackReference(value = "category-suggestions")
     private Category category;
 
     @ManyToOne
+    @JsonBackReference(value = "city-suggestions")
     private City city;
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.time.LocalDateTime;
 
@@ -21,11 +22,14 @@ public class Post {
     private LocalDateTime createdAt;
 
     @ManyToOne
+    @JsonBackReference(value = "user-posts")
     private User author;
 
     @ManyToOne
+    @JsonBackReference(value = "city-posts")
     private City city;
 
     @ManyToOne
+    @JsonBackReference(value = "place-posts")
     private Place place;
 }

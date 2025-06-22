@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 
@@ -21,5 +22,6 @@ public class Category {
     private String icon;
 
     @OneToMany(mappedBy = "category")
+    @JsonManagedReference(value = "category-suggestions")
     private List<Suggestion> suggestions;
 }
