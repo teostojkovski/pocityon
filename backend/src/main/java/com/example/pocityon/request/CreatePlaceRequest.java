@@ -1,18 +1,15 @@
-package com.example.pocityon.model;
+package com.example.pocityon.request;
 
-import jakarta.persistence.*;
+import com.example.pocityon.model.Category;
+import com.example.pocityon.model.City;
+import com.example.pocityon.model.Image;
+import com.example.pocityon.model.Suggestion;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@Entity
-public class Place {
-
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class CreatePlaceRequest {
     private String name;
     private String description;
     private String phone;
@@ -24,16 +21,8 @@ public class Place {
     private String address;
     private double latitude;
     private double longitude;
-
-    @ManyToOne
-    private City city;
-
-    @ManyToOne
-    private Category category;
-
-    @OneToMany(mappedBy = "place")
+    private Long cityId;
+    private Long categoryId;
     private List<Image> images;
-
-    @OneToMany(mappedBy = "place")
     private List<Suggestion> suggestions;
 }
