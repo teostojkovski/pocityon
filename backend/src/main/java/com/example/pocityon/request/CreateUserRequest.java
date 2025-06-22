@@ -1,28 +1,21 @@
-package com.example.pocityon.model;
+package com.example.pocityon.request;
 
-import jakarta.persistence.*;
+import com.example.pocityon.model.Post;
+import com.example.pocityon.model.Suggestion;
+import com.example.pocityon.model.UserRole;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@Entity
-public class User {
-
-    @Id
-    @GeneratedValue
-    private  Long id;
+public class CreateUserRequest {
     private String username;
     private String email;
     private String password;
-    private UserRole role = UserRole.USER;
+    private UserRole role;
     private String image;
     private String bio;
     private String socialLinks;
-
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Post> posts;
-
-    @OneToMany(mappedBy = "author")
     private List<Suggestion> suggestions;
 }

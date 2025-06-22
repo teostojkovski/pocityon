@@ -8,6 +8,6 @@ import java.util.List;
 public interface SuggestionRepository extends JpaRepository<Suggestion, Long> {
     List<Suggestion> findAllByCityId(Long cityId);
     List<Suggestion> findAllByPlaceId(Long placeId);
-    List<Suggestion> findAllByUserId(Long userId);
+    List<Suggestion> findAllByAuthorId(Long userId);
     List<Suggestion> findAllByCategoryId(Long categoryId);
 }

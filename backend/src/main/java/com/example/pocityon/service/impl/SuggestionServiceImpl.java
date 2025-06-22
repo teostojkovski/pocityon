@@ -96,7 +96,7 @@ public class SuggestionServiceImpl implements SuggestionService {
 
     @Override
     public List<Suggestion> getSuggestionsByUser(Long userId) {
-        return suggestionRepository.findAllByUserId(userId);
+        return suggestionRepository.findAllByAuthorId(userId);
     }
 
     @Override
