@@ -4,8 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 @Entity
 public class Suggestion {
 
@@ -14,6 +17,9 @@ public class Suggestion {
     private Long id;
     private String title;
     private String content;
+    private String type;    //optional
+    private String link;    //optional
+    private LocalDateTime createdAt;
 
     @ManyToOne
     private User author;
@@ -21,11 +27,9 @@ public class Suggestion {
     @ManyToOne
     private Place place; // this is only if I tie the suggestion to a place.
 
-    private String type;
-    private LocalDateTime createdAt;
-
     @ManyToOne
     private Category category;
+
     @ManyToOne
     private City city;
 }

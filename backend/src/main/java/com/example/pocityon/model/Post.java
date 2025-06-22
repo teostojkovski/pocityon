@@ -4,9 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@Data
 @Entity
 public class Post {
 
@@ -16,11 +18,14 @@ public class Post {
 
     private String title;
     private String content;
-
-    @ManyToOne
-    private User author;
     private LocalDateTime createdAt;
 
     @ManyToOne
+    private User author;
+
+    @ManyToOne
     private City city;
+
+    @ManyToOne
+    private Place place;
 }

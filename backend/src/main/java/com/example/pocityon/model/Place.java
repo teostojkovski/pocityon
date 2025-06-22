@@ -36,4 +36,7 @@ public class Place {
 
     @OneToMany(mappedBy = "place")
     private List<Suggestion> suggestions;
+
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
+    private List<Post> posts;
 }

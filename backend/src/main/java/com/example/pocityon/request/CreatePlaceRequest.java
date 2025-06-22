@@ -1,9 +1,6 @@
 package com.example.pocityon.request;
 
-import com.example.pocityon.model.Category;
-import com.example.pocityon.model.City;
-import com.example.pocityon.model.Image;
-import com.example.pocityon.model.Suggestion;
+import com.example.pocityon.model.*;
 import lombok.Data;
 
 import java.util.List;
@@ -25,4 +22,5 @@ public class CreatePlaceRequest {
     private Long categoryId;
     private List<Image> images;
     private List<Suggestion> suggestions;
+    private List<Post> posts;
 }

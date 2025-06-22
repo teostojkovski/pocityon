@@ -54,6 +54,7 @@ public class PlaceServiceImpl implements PlaceService {
         place.setCategory(category);
         place.setImages(req.getImages());
         place.setSuggestions(req.getSuggestions());
+        place.setPosts(req.getPosts());
         return placeRepository.save(place);
     }
 
@@ -76,6 +77,7 @@ public class PlaceServiceImpl implements PlaceService {
         place.setCategory(category);
         place.setImages(req.getImages());
         place.setSuggestions(req.getSuggestions());
+        place.setPosts(req.getPosts());
         return placeRepository.save(place);
     }
 
