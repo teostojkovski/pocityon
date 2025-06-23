@@ -27,6 +27,11 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+    @GetMapping("/{username}")
+    public User getUserByUsername(@PathVariable String username) throws Exception{
+        return userService.findUserByUsername(username);
+    }
+
     @PostMapping
     public User createUser(@RequestBody CreateUserRequest req){
         return userService.createUser(req);
@@ -38,6 +43,7 @@ public class UserController {
         return userService.updateUser(id, req);
     }
 
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
     }
